@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+  
+  --color-yellow: #FFD600;
+  --color-black: #080808;
+  --color-dark: #111111;
+  --color-dark2: #1a1a1a;
+  --color-white: #f5f5f5;
+  --color-accent: #FF4500;
+}
+
+:root {
+  --yellow: #FFD600;
+  --black: #080808;
+  --dark: #111111;
+  --dark2: #1a1a1a;
+  --white: #f5f5f5;
+  --accent: #FF4500;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0) }
+  to { transform: translateX(-50%) }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
