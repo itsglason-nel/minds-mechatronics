@@ -72,6 +72,27 @@ export default function App() {
     };
   }, []);
 
+  // ensure all hash links scroll smoothly and uniformly
+  useEffect(() => {
+    const links = Array.from(document.querySelectorAll('a[href^="#"]')) as HTMLAnchorElement[];
+    const handleHashClick = (e: MouseEvent) => {
+      const a = e.currentTarget as HTMLAnchorElement;
+      const { hash } = a;
+      if (hash && hash !== '#') {
+        const target = document.querySelector(hash) as HTMLElement | null;
+        if (target) {
+          e.preventDefault();
+          // close mobile menu if open (links in mobile menu should also collapse)
+          setIsMobileMenuOpen(false);
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    links.forEach(l => l.addEventListener('click', handleHashClick));
+    return () => links.forEach(l => l.removeEventListener('click', handleHashClick));
+  }, []);
+
   const stats = [
     { label: 'Years Experience', value: 6 },
     { label: 'Machines Deployed', value: 200 },

@@ -22,6 +22,11 @@
   --accent: #FF4500;
 }
 
+html {
+  /* enable native smooth scrolling for anchors and programmatic scrolls */
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--black);
   color: var(--white);
